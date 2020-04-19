@@ -1,0 +1,68 @@
+
+<form [formGroup]="karyawanForm">
+  <h1>Karyawan Form</h1>
+  <mat-form-field appearance="outline">
+    <mat-label>Karyawan Name</mat-label>
+    <input 
+    formControlName="nama"
+    matInput placeholder="Input your name here" name="nama" id="nama" [(ngModel)]="karyawan.nama" />
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <mat-label>Division</mat-label>
+    <mat-select 
+    formControlName="divisi"
+    matNativeControl name="divisi" id="divisi" [(ngModel)]="karyawan.divisi">
+      <mat-option value="it">
+        Information Technology
+      </mat-option>
+      <mat-option value="si">
+        Sistem Information
+      </mat-option>
+      <mat-option value="cs">
+        Customer Service
+      </mat-option>
+      <mat-option value="ho">
+        Head Of Office
+      </mat-option>
+      <mat-option value="ilkom">
+        Communication
+      </mat-option>
+      <mat-option value="manager">
+        Manager
+      </mat-option>
+      <mat-option value="akun">
+        Accounting Staff
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Gaji Pokok Karyawan</mat-label>
+    <input 
+    formControlName="gajipokok"
+    matInput placeholder="Input gaji pokok karyawan" name="gajipokok" id="gajipokok" [(ngModel)]="karyawan.gajipokok" />
+  </mat-form-field>
+  <br />
+  <mat-form-field appearance="outline">
+    <mat-label>Tunjangan Karyawan</mat-label>
+    <input 
+    formControlName="tunjangan"
+    matInput placeholder="Input Tunjangan Karyawan" name="tunjangan" id="tunjangan" [(ngModel)]="karyawan.tunjangan" />
+  </mat-form-field>
+  <br />
+  <div class="buttons">
+    <div *ngIf="update">
+      <button mat-raised-button color="warn" (click)="deleteKaryawan()">
+        delete
+      </button>
+      <button [disabled]="karyawanForm.invalid" mat-raised-button color="primary" (click)="updateKaryawan()">
+        update
+      </button>
+    </div>
+    <div *ngIf="!update">
+      <button [disabled]="karyawanForm.invalid" mat-raised-button (click)="postKaryawan()" color="primary">
+        post
+      </button>
+    </div>
+  </div>
+</form>
