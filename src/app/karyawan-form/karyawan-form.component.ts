@@ -33,12 +33,14 @@ export class KaryawanFormComponent implements OnInit {
       nama: ["", [Validators.required, Validators.minLength(5)]],
       divisi: ["", [Validators.required]],
       gajipokok: ["", [Validators.required]],
-      tunjangan: ["", [Validators.required]]
+      tunjangan: ["", [Validators.required]],
+      check: [false, [Validators.requiredTrue]],
     })
     nama = this.karyawanForm.get("nama");
     divisi = this.karyawanForm.get("divisi");
     gajipokok = this.karyawanForm.get("gajipokok");
     tunjangan = this.karyawanForm.get("tunjangan");
+    check = this.karyawanForm.get("check");
     
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {

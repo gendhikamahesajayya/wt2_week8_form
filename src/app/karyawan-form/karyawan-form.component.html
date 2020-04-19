@@ -6,6 +6,9 @@
     <input 
     formControlName="nama"
     matInput placeholder="Input your name here" name="nama" id="nama" [(ngModel)]="karyawan.nama" />
+    <mat-error>
+      name has to be 5 characters mininum and cannot be empty
+    </mat-error>
   </mat-form-field>
   <br />
   <mat-form-field>
@@ -41,6 +44,9 @@
     <input 
     formControlName="gajipokok"
     matInput placeholder="Input gaji pokok karyawan" name="gajipokok" id="gajipokok" [(ngModel)]="karyawan.gajipokok" />
+    <mat-error>
+      please fill the form
+    </mat-error>
   </mat-form-field>
   <br />
   <mat-form-field appearance="outline">
@@ -48,8 +54,16 @@
     <input 
     formControlName="tunjangan"
     matInput placeholder="Input Tunjangan Karyawan" name="tunjangan" id="tunjangan" [(ngModel)]="karyawan.tunjangan" />
+    <mat-error>
+      please fill the form
+    </mat-error>
   </mat-form-field>
   <br />
+  <mat-checkbox formControlName="check">{{
+    update
+      ? "I want to update this user"
+      : "I agree to the terms and conditions"
+  }}</mat-checkbox>
   <div class="buttons">
     <div *ngIf="update">
       <button mat-raised-button color="warn" (click)="deleteKaryawan()">
